@@ -1,0 +1,91 @@
+services:
+  modulo1:
+    build:
+      context: ./modulo1/codigo_fuente
+    container_name: modulo1
+    ports:
+      - "8081:8000"
+    volumes:
+      - ./modulo1/codigo_fuente:/app
+
+  modulo2:
+    build:
+      context: ./modulo2/codigo_fuente
+    container_name: modulo2
+    ports:
+      - "8082:8000"
+    volumes:
+      - ./modulo2/codigo_fuente:/app
+
+  modulo3:
+    build:
+      context: ./modulo3/codigo_fuente
+    container_name: modulo3
+    ports:
+      - "8083:8000"
+    volumes:
+      - ./modulo3/codigo_fuente:/app
+
+  modulo4:
+    build:
+      context: ./modulo4/codigo_fuente
+    container_name: modulo4
+    ports:
+      - "8084:8000"
+    volumes:
+      - ./modulo4/codigo_fuente:/app
+
+  modulo5:
+    build:
+      context: ./modulo5/codigo_fuente
+    container_name: modulo5
+    ports:
+      - "8085:8000"
+    volumes:
+      - ./modulo5/codigo_fuente:/app
+
+  modulo6:
+    build:
+      context: ./modulo6/codigo_fuente
+    container_name: modulo6
+    ports:
+      - "8086:8000"
+    volumes:
+      - ./modulo6/codigo_fuente:/app
+
+  modulo7:
+    build:
+      context: ./modulo7/codigo_fuente
+    container_name: modulo7
+    ports:
+      - "8087:8000"
+    volumes:
+      - ./modulo7/codigo_fuente:/app
+
+  modulo8:
+    build:
+      context: ./modulo8/codigo_fuente
+    container_name: modulo8
+    ports:
+      - "8088:8000"
+    volumes:
+      - ./modulo8/codigo_fuente:/app
+
+  modulo9:
+    build:
+      context: ./modulo9/codigo_fuente
+    container_name: modulo9
+    ports:
+      - "8089:8000"
+    volumes:
+      - ./modulo9/codigo_fuente:/app
+
+  modulo10:
+    build:
+      context: ./modulo10/codigo_fuente
+    container_name: modulo10
+    ports:
+      - "8090:8000"
+    volumes:
+      - ./modulo10/codigo_fuente:/app
+
