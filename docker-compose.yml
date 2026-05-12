@@ -194,6 +194,8 @@ services:
   db_modulo1:
     image: mysql:8.0
     container_name: db_modulo1
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo1
@@ -207,6 +209,8 @@ services:
   db_modulo2:
     image: mysql:8.0
     container_name: db_modulo2
+    ports:
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo2
@@ -220,6 +224,8 @@ services:
   db_modulo3:
     image: mysql:8.0
     container_name: db_modulo3
+    ports:
+      - "3308:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo3
@@ -233,6 +239,8 @@ services:
   db_modulo4:
     image: mysql:8.0
     container_name: db_modulo4
+    ports:
+      - "3309:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo4
@@ -246,6 +254,8 @@ services:
   db_modulo5:
     image: mysql:8.0
     container_name: db_modulo5
+    ports:
+      - "3310:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo5
@@ -259,6 +269,8 @@ services:
   db_modulo6:
     image: mysql:8.0
     container_name: db_modulo6
+    ports:
+      - "3311:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo6
@@ -272,6 +284,8 @@ services:
   db_modulo7:
     image: mysql:8.0
     container_name: db_modulo7
+    ports:
+      - "3312:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo7
@@ -285,6 +299,8 @@ services:
   db_modulo8:
     image: mysql:8.0
     container_name: db_modulo8
+    ports:
+      - "3313:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo8
@@ -298,6 +314,8 @@ services:
   db_modulo9:
     image: mysql:8.0
     container_name: db_modulo9
+    ports:
+      - "3314:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo9
@@ -311,6 +329,8 @@ services:
   db_modulo10:
     image: mysql:8.0
     container_name: db_modulo10
+    ports:
+      - "3315:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: db_modulo10
