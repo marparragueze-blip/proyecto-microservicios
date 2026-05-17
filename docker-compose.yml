@@ -1,359 +1,85 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  modulo1:
-    build:
-      context: ./modulo1/codigo_fuente
-    container_name: modulo1
+  # ==========================================
+  # 1. MICROSERVICIOS REALES (SPRING BOOT)
+  # ==========================================
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
     ports:
-      - "8081:8000"
-    volumes:
-      - ./modulo1/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo1
-    environment:
-      - DB_HOST=db_modulo1
-      - DB_NAME=db_modulo1
-      - DB_USER=user1
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
+      - "8081:8081"
+    restart: always
 
-  modulo2:
-    build:
-      context: ./modulo2/codigo_fuente
-    container_name: modulo2
+  producto-service:
+    build: ./producto-service
+    container_name: producto-service
     ports:
-      - "8082:8000"
-    volumes:
-      - ./modulo2/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo2
-    environment:
-      - DB_HOST=db_modulo2
-      - DB_NAME=db_modulo2
-      - DB_USER=user2
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
+      - "8082:8082"
+    restart: always
 
-  modulo3:
-    build:
-      context: ./modulo3/codigo_fuente
-    container_name: modulo3
+  usuario-service:
+    build: ./usuario-service
+    container_name: usuario-service
     ports:
-      - "8083:8000"
-    volumes:
-      - ./modulo3/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo3
-    environment:
-      - DB_HOST=db_modulo3
-      - DB_NAME=db_modulo3
-      - DB_USER=user3
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
+      - "8083:8083"
+    restart: always
 
-  modulo4:
-    build:
-      context: ./modulo4/codigo_fuente
-    container_name: modulo4
+  # ==========================================
+  # 2. CONTENEDORES DE CONTINGENCIA (ESPACIO 0)
+  # ==========================================
+  carrito-service:
+    image: alpine
+    container_name: carrito-service
+    command: tail -f /dev/null
     ports:
-      - "8084:8000"
-    volumes:
-      - ./modulo4/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo4
-    environment:
-      - DB_HOST=db_modulo4
-      - DB_NAME=db_modulo4
-      - DB_USER=user4
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
+      - "8084:8084"
+    restart: always
 
-  modulo5:
-    build:
-      context: ./modulo5/codigo_fuente
-    container_name: modulo5
+  catalogo-service:
+    image: alpine
+    container_name: catalogo-service
+    command: tail -f /dev/null
     ports:
-      - "8085:8000"
-    volumes:
-      - ./modulo5/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo5
-    environment:
-      - DB_HOST=db_modulo5
-      - DB_NAME=db_modulo5
-      - DB_USER=user5
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
+      - "8085:8085"
+    restart: always
 
-  modulo6:
-    build:
-      context: ./modulo6/codigo_fuente
-    container_name: modulo6
+  inventario-service:
+    image: alpine
+    container_name: inventario-service
+    command: tail -f /dev/null
     ports:
-      - "8086:8000"
-    volumes:
-      - ./modulo6/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo6
-    environment:
-      - DB_HOST=db_modulo6
-      - DB_NAME=db_modulo6
-      - DB_USER=user6
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
+      - "8086:8086"
+    restart: always
 
-  modulo7:
-    build:
-      context: ./modulo7/codigo_fuente
-    container_name: modulo7
+  pago-service:
+    image: alpine
+    container_name: pago-service
+    command: tail -f /dev/null
     ports:
-      - "8087:8000"
-    volumes:
-      - ./modulo7/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo7
-    environment:
-      - DB_HOST=db_modulo7
-      - DB_NAME=db_modulo7
-      - DB_USER=user7
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
+      - "8087:8087"
+    restart: always
 
-  modulo8:
-    build:
-      context: ./modulo8/codigo_fuente
-    container_name: modulo8
+  envio-service:
+    image: alpine
+    container_name: envio-service
+    command: tail -f /dev/null
     ports:
-      - "8088:8000"
-    volumes:
-      - ./modulo8/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo8
-    environment:
-      - DB_HOST=db_modulo8
-      - DB_NAME=db_modulo8
-      - DB_USER=user8
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
+      - "8088:8088"
+    restart: always
 
-  modulo9:
-    build:
-      context: ./modulo9/codigo_fuente
-    container_name: modulo9
+  notificacion-service:
+    image: alpine
+    container_name: notificacion-service
+    command: tail -f /dev/null
     ports:
-      - "8089:8000"
-    volumes:
-      - ./modulo9/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo9
-    environment:
-      - DB_HOST=db_modulo9
-      - DB_NAME=db_modulo9
-      - DB_USER=user9
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
+      - "8089:8089"
+    restart: always
 
-  modulo10:
-    build:
-      context: ./modulo10/codigo_fuente
-    container_name: modulo10
+  reportes-service:
+    image: alpine
+    container_name: reportes-service
+    command: tail -f /dev/null
     ports:
-      - "8090:8000"
-    volumes:
-      - ./modulo10/codigo_fuente:/app
-    networks:
-      - microservicios-net
-    depends_on:
-      - db_modulo10
-    environment:
-      - DB_HOST=db_modulo10
-      - DB_NAME=db_modulo10
-      - DB_USER=user10
-      - DB_PASSWORD=pass123
-      - DB_PORT=3306
-
-  db_modulo1:
-    image: mysql:8.0
-    container_name: db_modulo1
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo1
-      MYSQL_USER: user1
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_1:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-  db_modulo2:
-    image: mysql:8.0
-    container_name: db_modulo2
-    ports:
-      - "3307:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo2
-      MYSQL_USER: user2
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_2:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-  db_modulo3:
-    image: mysql:8.0
-    container_name: db_modulo3
-    ports:
-      - "3308:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo3
-      MYSQL_USER: user3
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_3:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-  db_modulo4:
-    image: mysql:8.0
-    container_name: db_modulo4
-    ports:
-      - "3309:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo4
-      MYSQL_USER: user4
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_4:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-  db_modulo5:
-    image: mysql:8.0
-    container_name: db_modulo5
-    ports:
-      - "3310:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo5
-      MYSQL_USER: user5
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_5:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-  db_modulo6:
-    image: mysql:8.0
-    container_name: db_modulo6
-    ports:
-      - "3311:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo6
-      MYSQL_USER: user6
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_6:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-  db_modulo7:
-    image: mysql:8.0
-    container_name: db_modulo7
-    ports:
-      - "3312:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo7
-      MYSQL_USER: user7
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_7:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-  db_modulo8:
-    image: mysql:8.0
-    container_name: db_modulo8
-    ports:
-      - "3313:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo8
-      MYSQL_USER: user8
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_8:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-  db_modulo9:
-    image: mysql:8.0
-    container_name: db_modulo9
-    ports:
-      - "3314:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo9
-      MYSQL_USER: user9
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_9:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-  db_modulo10:
-    image: mysql:8.0
-    container_name: db_modulo10
-    ports:
-      - "3315:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: db_modulo10
-      MYSQL_USER: user10
-      MYSQL_PASSWORD: pass123
-    volumes:
-      - mysql_data_10:/var/lib/mysql
-    networks:
-      - microservicios-net
-
-volumes:
-  mysql_data_1:
-  mysql_data_2:
-  mysql_data_3:
-  mysql_data_4:
-  mysql_data_5:
-  mysql_data_6:
-  mysql_data_7:
-  mysql_data_8:
-  mysql_data_9:
-  mysql_data_10:
-
-networks:
-  microservicios-net:
-    driver: bridge
-
+      - "8090:8090"
+    restart: always
