@@ -72,3 +72,8 @@ CONTROL DE PROYECTO
   [ DEPLOY COMMAND ]  ──►  docker compose up --build -d
   [ TRACE SYSTEM ]    ──►  Logs estructurados vía SLF4J (log.info)
   [ ERROR HANDLER ]   ──►  Mitigación de caídas en cascada (HTTP 503)
+  
+  
+  <img width="859" height="503" alt="image" src="https://github.com/user-attachments/assets/aae730f5-a756-4261-a243-2c0bd1daaf6e" />
+
+  
