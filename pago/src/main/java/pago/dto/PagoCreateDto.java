@@ -1,19 +1,16 @@
 package pago.dto;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-
-@Data
 public class PagoCreateDto {
-    @NotNull(message = "El id del pedido es obligatorio")
     private Long pedidoId;
-    
-    @NotNull(message = "El monto es obligatorio")
-    @Min(value = 1, message = "El monto debe ser mayor a 0")
     private Double monto;
-    
-    @NotBlank(message = "El método de pago es obligatorio")
     private String metodoPago;
+
+    public Long getPedidoId() { return pedidoId; }
+    public void setPedidoId(Long pedidoId) { this.pedidoId = pedidoId; }
+
+    public Double getMonto() { return monto; }
+    public void setMonto(Double monto) { this.monto = monto; }
+
+    public String getMetodoPago() { return metodoPago; }
+    public void setMetodoPago(String metodoPago) { this.metodoPago = metodoPago; }
 }

@@ -1,32 +1,27 @@
-
 package pago.controller;
 
-import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pago.dto.PagoCreateDto;
-import pago.dto.PagoDto;
-import pago.service.PagoService;
 import java.util.List;
+import pago.model.PagoModel;
+import pago.dto.PagoCreateDto;
+import pago.service.PagoService;
 
 @RestController
-@RequestMapping("/api/pagos")
+@RequestMapping("/pagos")
 public class PagoController {
+    private final PagoService service;
 
-    private final PagoService pagoService;
+    public PagoController(PagoService service) {
+        this.service = service;
+    }
 
-    public PagoController(PagoService pagoService) {
-        this.pagoService = pagoService;
+    @GetMapping
+    public List<PagoModel> listar() {
+        return service.listar();
     }
 
     @PostMapping
-    public ResponseEntity<PagoDto> pagar(@Valid @RequestBody PagoCreateDto dto) {
-        return new ResponseEntity<>(pagoService.procesarPago(dto), HttpStatus.CREATED);
+    public PagoModel crear(@RequestBody PagoCreateDto dto) {
+        return service.guardar(dto);
     }
-
-    @getMapping
-    public ResponseEntity<List<PagoDto>> historial() {
-        return ResponseEntity.ok(pagoService.historialPagos());
-    }
-} 
+}

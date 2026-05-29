@@ -1,13 +1,9 @@
 package cl.reportes.dto;
 
-public class ReportesDTO {
-    private Long id;
+public class ReportesCreateDTO {
     private String tipo;
     private String contenido;
     private String fecha;
-
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
     public String getTipo() { return tipo; }
     public void setTipo(String tipo) { this.tipo = tipo; }

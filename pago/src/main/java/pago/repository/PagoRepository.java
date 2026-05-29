@@ -1,9 +1,8 @@
 package pago.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-import pago.model.Pago;
+import pago.model.PagoModel;
 
-@Repository
-public interface PagoRepository extends JpaRepository<Pago, Long> {
-} 
+public interface PagoRepository extends JpaRepository<PagoModel, Long> {
+}
+ 
