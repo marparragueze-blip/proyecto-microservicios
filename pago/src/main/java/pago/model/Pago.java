@@ -1,4 +1,4 @@
-package pago.model;
+package pago.java;
 
 import jakarta.persistence.*;
 import lombok.*;

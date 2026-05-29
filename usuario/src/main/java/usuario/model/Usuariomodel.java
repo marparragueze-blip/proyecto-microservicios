@@ -1,21 +1,20 @@
-package auth.model;
+package usuario.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "auth_usuarios")
+@Table(name = "usuarios")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuthUsuario {
+public class Usuariomodel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
+    private String nombre;
+    private String email;
     private String password;
-    private String tokenActual;
-    private LocalDateTime fechaExpiracionToken;
+    private String rol;
 } 

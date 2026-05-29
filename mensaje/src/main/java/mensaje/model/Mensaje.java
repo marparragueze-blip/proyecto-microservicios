@@ -1,21 +1,21 @@
-package auth.model;
+package mensaje.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "auth_usuarios")
+@Table(name = "mensajes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuthUsuario {
+public class Mensaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String password;
-    private String tokenActual;
-    private LocalDateTime fechaExpiracionToken;
-} 
+    private Long emisorId;
+    private Long receptorId;
+    private String contenido;
+    private LocalDateTime fechaEnvio;
+}
